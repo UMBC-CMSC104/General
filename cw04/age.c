@@ -11,25 +11,26 @@
 /* Main function */
 int main()
 {
+    /* Read in the age */
     int age;
     printf("Welcome to classwork 4!\n");
     printf("How old are you? ");
     scanf("%d", &age);
     getc(stdin);
 
-    if(age < 0)
+    if(age < 0) /* Invalid age! */
     {
         printf("Liar!\n");
     }
-    else if(age >= 0 && age < 18)
+    else if(age >= 0 && age < 18) /* Kids */
     {
         printf("So young!\n");
     }
-    else if(age >= 18 && age <= 22)
+    else if(age >= 18 && age <= 22) /* College students */
     {
         char college_input;
 
-        printf("Are you in college? (y\\n) ");
+        printf("Are you in college? (y/n) ");
         scanf("%c", &college_input);
 
         if(college_input == 'y')
@@ -45,7 +46,7 @@ int main()
             printf("Invalid input!\n");
         }
     }
-    else
+    else /* Old people! */
     {
         printf("You're ancient!\n");
     }
