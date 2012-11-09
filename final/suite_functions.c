@@ -50,28 +50,45 @@ char *get_face_value(int card, char *face_value)
     return face_value;
 }
 
+int get_points(int card)
+{
+    int face_value_number = ((card - 1) % 13) + 1;
+
+    return (face_value_number > 10 ? 10 : face_value_number);
+}
+
 /* Main function */
 int main()
 {
     char suite[16];
     char face_value[16];
+    int points;
 
-    int card1 = 12, card2 = 33, card3 = 25;
+    int card1 = 12, card2 = 33, card3 = 25, card4 = 14;
 
     /* Card 1 */
     get_face_value(card1, face_value);
     get_suite(card1, suite);
-    printf("%s of %s\n", face_value, suite);
+    points = get_points(card1);
+    printf("%s of %s.  Worth %d points\n", face_value, suite, points);
 
     /* Card 2 */
     get_face_value(card2, face_value);
     get_suite(card2, suite);
-    printf("%s of %s\n", face_value, suite);
+    points = get_points(card2);
+    printf("%s of %s.  Worth %d points\n", face_value, suite, points);
 
     /* Card 3 */
     get_face_value(card3, face_value);
     get_suite(card3, suite);
-    printf("%s of %s\n", face_value, suite);
+    points = get_points(card3);
+    printf("%s of %s.  Worth %d points\n", face_value, suite, points);
+
+    /* Card 3 */
+    get_face_value(card4, face_value);
+    get_suite(card4, suite);
+    points = get_points(card4);
+    printf("%s of %s.  Worth %d points\n", face_value, suite, points);
 
     return 0;
 }
