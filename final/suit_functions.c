@@ -12,7 +12,7 @@
 /* Returns a string representation of the suite for the card */
 char *get_suite(int card, char *suite)
 {
-    int suite_int = card / 13;
+    int suit_int = (card - 1) / 13;
 
     switch(suite_int)
     {
@@ -64,8 +64,19 @@ int main()
     char suite[16];
     char face_value[16];
     int points;
+    int i=0;
 
-    int card1 = 12, card2 = 33, card3 = 25, card4 = 14;
+    int card1 = 13, card2 = 33, card3 = 25, card4 = 15;
+
+    for(i=1; i<=52; i++)
+    {
+        get_face_value(i, face_value);
+        get_suite(i, suite);
+        points = get_num_points(i);
+        printf("%s of %s.  Worth %d points\n", face_value, suite, points);
+    }
+
+    printf("\n\n\n");
 
     /* Card 1 */
     get_face_value(card1, face_value);
